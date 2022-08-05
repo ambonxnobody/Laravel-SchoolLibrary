@@ -14,8 +14,13 @@
                                 <div class="card">
                                     <div class="d-flex justify-content-between align-items-center p-3">
                                         <div class="flex-shrink-0">
-                                            <img style="width: 9rem;" class="img-fluid rounded"
-                                                src="{{ asset('storage/' . $buku->cover) }}" alt="{{ $buku->judul }}">
+                                            @if ($buku->cover)
+                                                <img src="{{ asset('storage/' . $buku->cover) }}" alt="{{ $buku->judul }}"
+                                                    class="img-fluid rounded" style="width: 9rem;">
+                                            @else
+                                                <img src="{{ asset('assets/default.png') }}" alt="{{ $buku->judul }}"
+                                                    class="img-fluid rounded" style="width: 9rem;">
+                                            @endif
                                         </div>
                                         <div class="flex-grow-1 ml-3">
                                             <h5 class="align-items-start">{{ $buku->judul }}</h5>

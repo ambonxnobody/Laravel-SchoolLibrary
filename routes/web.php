@@ -23,7 +23,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 Route::get('/', function () {
     return view('Dashboard', [
         'title' => 'Dashboard',
-        'bukus' => Buku::latest()->get(),
+        'bukus' => Buku::query()->limit(10)->latest()->get(),
         'ebooks' => Ebook::latest()->get(),
     ]);
 });

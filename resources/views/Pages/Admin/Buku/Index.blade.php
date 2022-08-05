@@ -17,8 +17,13 @@
                                                 href="/buku/{{ $buku->id }}">{{ $buku->judul }}</a></h5>
                                         <p>{{ $buku->excerpt }}</p>
                                     </div>
-                                    <img height="75px" width="122px" src="{{ asset('storage/' . $buku->cover) }}"
-                                        alt="{{ $buku->judul }}" class="ml-3 img-fluid rounded">
+                                    @if ($buku->cover)
+                                        <img src="{{ asset('storage/' . $buku->cover) }}" alt="{{ $buku->judul }}"
+                                            class="m-3 img-fluid rounded" height="75px" width="122px">
+                                    @else
+                                        <img src="{{ asset('assets/default.png') }}" alt="{{ $buku->judul }}"
+                                            class="m-3 img-fluid rounded" height="75px" width="122px">
+                                    @endif
                                 </div>
                             </div>
                             <div class="card-footer">
